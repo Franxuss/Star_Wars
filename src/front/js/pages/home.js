@@ -16,11 +16,44 @@ export const Home = () => {
 					<a>
 						<CardCharacter />
 					</a>
+					<a>
+						<CardCharacter />
+					</a>
+					<a>
+						<CardCharacter />
+					</a>
+					<a>
+						<CardCharacter />
+					</a>
+					<a>
+						<CardCharacter />
+					</a>
+					<a>
+						<CardCharacter />
+					</a>
+					<a>
+						<CardCharacter />
+					</a>
 				</div>
 			</div>
 			<div className="planets">
 				<h1>Planets</h1>
 				<div className="scrollmenu">
+					<a>
+						<CardPlanets />
+					</a>
+					<a>
+						<CardPlanets />
+					</a>
+					<a>
+						<CardPlanets />
+					</a>
+					<a>
+						<CardPlanets />
+					</a>
+					<a>
+						<CardPlanets />
+					</a>
 					<a>
 						<CardPlanets />
 					</a>

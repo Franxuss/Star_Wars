@@ -28,9 +28,11 @@ export const CardPlanets = () => {
 					Eye Color:
 				</p>
 				<div className="d-flex buttonsDiv">
-					<button className="buttonBlue buttonBlue ml-5" type="button" href="#">
-						{"Learn more!"}
-					</button>
+					<Link to="/demo">
+						<button className=" buttonBlue" type="button" href="#">
+							{"Learn more!"}
+						</button>
+					</Link>
 					<button type="button" className="buttonHeart ml-auto mr-5 ">
 						<i className="far fa-heart" />
 					</button>

@@ -10,13 +10,18 @@
     height: 4vh;
     margin-bottom: 4%;
 }
+.buttonsDiv a{
+    margin: 0;
+}
 
 .buttonBlue{
     background-color: white;
     color: #cc0000;
     border: 2px solid #cc0000;
     border-radius: 5px;
-    width: 30%;
+    width: 150%;
+    height: 100%;
+    margin-left: -2rem;
 }
 
 .buttonHeart{

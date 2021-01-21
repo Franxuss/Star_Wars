@@ -20,7 +20,7 @@ export const CardCharacter = () => {
 					<h5 className="card-title">Card title</h5>
 
 					<p className="card-text" style={{ lineHeight: "1.5" }}>
-						Gender: Hair Color: Eye Color:
+						Gender:
 					</p>
 					<p className="card-text" style={{ lineHeight: "1.5" }}>
 						Hair Color:
@@ -29,9 +29,11 @@ export const CardCharacter = () => {
 						Eye Color:
 					</p>
 					<div className="d-flex buttonsDiv">
-						<button className="buttonBlue buttonBlue ml-5" type="button" href="#">
-							{"Learn more!"}
-						</button>
+						<Link to="/demo">
+							<button className=" buttonBlue " type="button" href="#">
+								{"Learn more!"}
+							</button>
+						</Link>
 						<button type="button" className="buttonHeart ml-auto mr-5 ">
 							<i className="far fa-heart" />
 						</button>
