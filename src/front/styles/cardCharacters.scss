@@ -1,0 +1,38 @@
+.card{
+    border-radius: 10px;
+    margin-bottom: 10%;    
+    background: rgb(124,124,124);
+    background: linear-gradient(90deg, rgba(124,124,124,1) 0%, rgba(150,150,150,1) 53%, rgba(200,200,200,1) 100%);
+    color: #4a0101;
+}
+
+.buttonsDiv{
+    height: 4vh;
+    margin-bottom: 4%;
+}
+
+.buttonBlue{
+    background-color: white;
+    color: #cc0000;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.buttonHeart{
+    background-color: white;
+    color: #e7c500;
+    border: 2px solid #e7c500;
+    border-radius: 5px;
+    width: 11%;
+}
+
+.buttonBlue:hover{
+    background-color: #cc0000;
+    color: white;
+}
+
+.buttonHeart:hover{
+    background-color: #e7c500;
+    color: black;
+}

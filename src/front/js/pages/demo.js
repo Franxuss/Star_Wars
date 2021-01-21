@@ -9,35 +9,74 @@ export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
-					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
-					);
-				})}
-			</ul>
-			<br />
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
+		<div className="container-fluid">
+			<div className="containerAll mt-3 row">
+				<div className="colImg col-8">
+					<div className="containerInfo">
+						<img
+							className="imgInfo"
+							src="https://d25nlln9isiu5y.cloudfront.net/wp-content/uploads/2020/08/18093730/Starwars-trilogia.jpg"
+							//alt="Card image cap"
+						/>
+						<div className="info col-4">
+							<h1>Tittle</h1>
+							<p>Descrption</p>
+							<div className="imgDecal" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="descriptionList">
+				<table className="table table-striped">
+					<thead>
+						<tr>
+							<th className="borderTable" scope="col">
+								APPEARANCES
+							</th>
+							<th className="borderTable" scope="col">
+								AFFILIATIONS
+							</th>
+							<th className="borderTable" scope="col">
+								LOCATIONS
+							</th>
+							<th className="borderTable" scope="col">
+								GENDER
+							</th>
+							<th className="borderTable" scope="col">
+								DIMENSIONS
+							</th>
+							<th className="borderTable" scope="col">
+								SPECIES
+							</th>
+							<th className="borderTable" scope="col">
+								VEHICLES
+							</th>
+							<th className="borderTable" scope="col">
+								WEAPONS
+							</th>
+							<th scope="col">TOOL</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th className="rowStyle borderTable">ndoifuvpdvbdsñvn</th>
+							<th className="rowStyle borderTable">ndoifuvpdvbndubvjh</th>
+							<th className="rowStyle borderTable">ndoifuvpdvñvndubvjh</th>
+							<th className="rowStyle borderTable">ndoifuvpñvndubvjh</th>
+							<th className="rowStyle borderTable">ndoifuvpndubvjh</th>
+							<th className="rowStyle borderTable">ndoifuvvndubvjh</th>
+							<th className="rowStyle borderTable">ndoifuvpndubvjh</th>
+							<th className="rowStyle borderTable">ndoifuvvndubvjh</th>
+							<th className="rowStyle">ndoifudubvjh</th>{" "}
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div className="d-flex justify-content-center">
+				<Link to="/">
+					<button className="btn btn-secondary">Back home</button>
+				</Link>
+			</div>
 		</div>
 	);
 };
