@@ -25,18 +25,14 @@ div.scrollmenu {
   white-space: nowrap;
 }
 
-div.scrollmenu a {
+div.scrollmenu span {
   display: inline-block;
   margin-left: 5em;
-//   color: white;
-//   text-align: center;
-//   padding: 14px;
-//   text-decoration: none;
 }
 
 .characters{
     margin-top: 3%;
-    color: #cc0000;
+    color: #8b001e;
 }
 
 .characters h1{
@@ -46,7 +42,7 @@ div.scrollmenu a {
 
 .planets{
     margin-top: 3%;
-    color: #cc0000;
+    color: #8b001e;
 }
 
 .planets h1{
@@ -67,13 +63,13 @@ div.scrollmenu a {
  
 /* Handle */
 .scrollmenu::-webkit-scrollbar-thumb {
-  background: #cc0000; 
+  background: #692433; 
   border-radius: 10px;
 }
 
 /* Handle on hover */
 .scrollmenu::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
+  background: #581725; 
 }
 
 /* width */
@@ -89,11 +85,31 @@ div.scrollmenu a {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #cc0000; 
+  background: #692433; 
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
+  background: #844452; 
 }
+.footer{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+footer p{
+    display: inline-block;
+    margin:0;
+    width: 15%;
+    color: grey;
+    margin-left: -2rem;
+}
+ .instagram, .twitter, .twitch, .facebook{
+     color: grey;
+     font-size: 2rem;
+ }
+ .instagram:hover,.twitter:hover, .twitch:hover, .facebook:hover{
+    transform: scale(1.5);
+    transition: all 400ms linear;
+    color: rgb(151, 151, 151);
+ }

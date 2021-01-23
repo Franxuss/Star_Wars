@@ -1,15 +1,30 @@
 import "primeicons/primeicons.css";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.css";
-import React, { useRef } from "react";
+import React, { useState, useEffect, useRef, useParams, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "primereact/button";
-import { Card } from "primereact/card";
 import "../../styles/cardCharacters.scss";
+import PropTypes, { func } from "prop-types";
+import { Context } from "../store/appContext";
 
-export const CardCharacter = () => {
+export const CardCharacter = props => {
+	const { store, actions } = useContext(Context);
+
+	//fetch de people/...
+
+	const [person, setPerson] = useState([]);
+
+	useEffect(() => {
+		const obtenerDatos = async () => {
+			const data2 = await fetch(`https://www.swapi.tech/api/people/${props.uid}`);
+			const users2 = await data2.json();
+			setPerson(users2.result.properties);
+		};
+		obtenerDatos();
+	}, []);
+
 	return (
-		<div>
+		<React.Fragment>
 			<div className="card cardPlanets">
 				<img
 					className="card-img-top"
@@ -17,29 +32,39 @@ export const CardCharacter = () => {
 					//alt="Card image cap"
 				/>
 				<div className="card-body">
-					<h5 className="card-title">Card title</h5>
+					<h5 className="card-title">
+						Name: <strong>{props.name}</strong>
+					</h5>
 
 					<p className="card-text" style={{ lineHeight: "1.5" }}>
-						Gender:
+						Gender: <strong>{person.gender}</strong>
 					</p>
 					<p className="card-text" style={{ lineHeight: "1.5" }}>
-						Hair Color:
+						Hair Color: <strong>{person.hair_color}</strong>
 					</p>
 					<p className="card-text" style={{ lineHeight: "1.5" }}>
-						Eye Color:
+						Eye Color: <strong>{person.eye_color}</strong>
 					</p>
 					<div className="d-flex buttonsDiv">
-						<Link to="/demo">
+						<Link to={`/demo/${props.uid}`}>
 							<button className=" buttonBlue " type="button" href="#">
 								{"Learn more!"}
 							</button>
 						</Link>
-						<button type="button" className="buttonHeart ml-auto mr-5 ">
+						<button
+							type="button"
+							className="buttonHeart ml-auto mr-5 "
+							onClick={() => actions.addFavorites(props.name)}>
 							<i className="far fa-heart" />
 						</button>
 					</div>
 				</div>
-			</div>
-		</div>
+			</div>{" "}
+		</React.Fragment>
 	);
+};
+CardCharacter.propTypes = {
+	name: PropTypes.string,
+	uid: PropTypes.string,
+	gender: PropTypes.string
 };

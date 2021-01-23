@@ -1,13 +1,27 @@
 import "primeicons/primeicons.css";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.css";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import "../../styles/cardPlanets.scss";
+import PropTypes from "prop-types";
 
-export const CardPlanets = () => {
+export const CardPlanets = props => {
+	//fetch de people/...
+
+	const [planets, setPlanets] = useState([]);
+
+	useEffect(() => {
+		const obtenerDatos = async () => {
+			const data2 = await fetch(`https://www.swapi.tech/api/planets/${props.uid}`);
+			const users2 = await data2.json();
+			setPlanets(users2.result.properties);
+		};
+		obtenerDatos();
+	}, []);
+
 	return (
 		<div className="card cardPlanets">
 			<img
@@ -16,23 +30,23 @@ export const CardPlanets = () => {
 				//alt="Card image cap"
 			/>
 			<div className="card-body">
-				<h5 className="card-title">Card title</h5>
+				<h5 className="card-title">
+					Name: <strong>{props.name}</strong>
+				</h5>
 
 				<p className="card-text" style={{ lineHeight: "1.5" }}>
-					Gender: Hair Color: Eye Color:
+					Population: <strong>{planets.population}</strong>
 				</p>
 				<p className="card-text" style={{ lineHeight: "1.5" }}>
-					Hair Color:
-				</p>
-				<p className="card-text" style={{ lineHeight: "1.5" }}>
-					Eye Color:
+					Diameter: <strong>{planets.diameter}</strong>
 				</p>
 				<div className="d-flex buttonsDiv">
-					<Link to="/demo">
-						<button className=" buttonBlue" type="button" href="#">
+					<Link to={`/demoPlanets/${props.uid}`}>
+						<button className=" buttonBlue " type="button" href="#">
 							{"Learn more!"}
 						</button>
 					</Link>
+
 					<button type="button" className="buttonHeart ml-auto mr-5 ">
 						<i className="far fa-heart" />
 					</button>
@@ -40,4 +54,8 @@ export const CardPlanets = () => {
 			</div>
 		</div>
 	);
+};
+CardPlanets.propTypes = {
+	name: PropTypes.string,
+	uid: PropTypes.string
 };

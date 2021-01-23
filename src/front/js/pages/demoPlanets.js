@@ -4,19 +4,19 @@ import { Context } from "../store/appContext";
 import "../../styles/demo.scss";
 import PropTypes from "prop-types";
 
-export const Demo = () => {
+export const DemoPlanets = props => {
 	const { store, actions } = useContext(Context);
 
 	const { id } = useParams();
 
-	const [person, setPerson] = useState([]);
+	const [planetas, setPlanetas] = useState([]);
 
 	useEffect(
 		() => {
 			const obtenerDatos = async () => {
-				const data = await fetch(`https://www.swapi.tech/api/people/${id}`);
+				const data = await fetch(`https://www.swapi.tech/api/planets/${id}`);
 				const users = await data.json();
-				setPerson(users.result.properties);
+				setPlanetas(users.result.properties);
 			};
 			obtenerDatos();
 		},
@@ -34,8 +34,8 @@ export const Demo = () => {
 							//alt="Card image cap"
 						/>
 						<div className="info col-4">
-							<h1>{person.name}</h1>
-							<p>Desception: A person.</p>
+							<h1>{planetas.name}</h1>
+							<p>Descrption: A planet.</p>
 							<div className="imgDecal" />
 						</div>
 					</div>
@@ -46,31 +46,27 @@ export const Demo = () => {
 					<thead>
 						<tr>
 							<th className="borderTable" scope="col">
-								NAME:
+								ROTATION PERIOD
 							</th>
 							<th className="borderTable" scope="col">
-								BIRTHDATE:
+								ORBITAL PERIOD
 							</th>
 							<th className="borderTable" scope="col">
-								GENDER:
+								GRAVITY
 							</th>
 							<th className="borderTable" scope="col">
-								HEIGHT:
+								CLIMATE
 							</th>
-							<th className="borderTable" scope="col">
-								SKIN:
-							</th>
-							<th scope="col">MASS</th>
+							<th scope="col">TERRAIN</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<th className="rowStyle borderTable">{person.name}</th>
-							<th className="rowStyle borderTable">{person.birth_year}</th>
-							<th className="rowStyle borderTable">{person.gender}</th>
-							<th className="rowStyle borderTable">{person.height}</th>
-							<th className="rowStyle borderTable">{person.skin_color}</th>
-							<th className="rowStyle">{person.mass}</th>
+							<th className="rowStyle borderTable">{planetas.rotation_period}</th>
+							<th className="rowStyle borderTable">{planetas.orbital_period}</th>
+							<th className="rowStyle borderTable">{planetas.gravity}</th>
+							<th className="rowStyle borderTable">{planetas.climate}</th>
+							<th className="rowStyle">{planetas.terrain}</th>
 						</tr>
 					</tbody>
 				</table>
@@ -82,8 +78,4 @@ export const Demo = () => {
 			</div>
 		</div>
 	);
-};
-Demo.propTypes = {
-	name: PropTypes.string,
-	uid: PropTypes.string
 };

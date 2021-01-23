@@ -24,14 +24,12 @@ export const Navbar = () => {
 	};
 	return (
 		<nav className="navbar navbar-light">
-			<Link to="/demo">
-				<img
-					className="starWarsImg"
-					src="https://1000marcas.net/wp-content/uploads/2019/12/Star-Wars-Logo.png"
-					width="10%"
-					style={{ marginLeft: "4em" }}
-				/>
-			</Link>
+			<img
+				className="starWarsImg"
+				src="https://1000marcas.net/wp-content/uploads/2019/12/Star-Wars-Logo.png"
+				width="10%"
+				style={{ marginLeft: "4em" }}
+			/>
 			<Toast ref={toast} />
 			<div className="splitButtonDiv justify-content-end">
 				<SplitButton label="Favorites" icon="pi pi-heart" model={items} />
