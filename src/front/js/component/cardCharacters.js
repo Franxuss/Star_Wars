@@ -10,6 +10,7 @@ import { Context } from "../store/appContext";
 export const CardCharacter = props => {
 	const { store, actions } = useContext(Context);
 
+	var images = store.images;
 	//fetch de people/...
 
 	const [person, setPerson] = useState([]);
@@ -28,8 +29,11 @@ export const CardCharacter = props => {
 			<div className="card cardPlanets">
 				<img
 					className="card-img-top"
-					src="https://d25nlln9isiu5y.cloudfront.net/wp-content/uploads/2020/08/18093730/Starwars-trilogia.jpg"
-					//alt="Card image cap"
+					src={images[props.uid - 1].url}
+					onError={e =>
+						(e.target.src =
+							"https://d25nlln9isiu5y.cloudfront.net/wp-content/uploads/2020/08/18093730/Starwars-trilogia.jpg")
+					}
 				/>
 				<div className="card-body">
 					<h5 className="card-title">
@@ -59,7 +63,7 @@ export const CardCharacter = props => {
 						</button>
 					</div>
 				</div>
-			</div>{" "}
+			</div>
 		</React.Fragment>
 	);
 };

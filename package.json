@@ -69,7 +69,9 @@
 		]
 	},
 	"dependencies": {
-		"bootstrap": "^4.3.1",
+		"bootstrap": "^4.6.0",
+		"jquery": "^3.5.1",
+		"popper.js": "^1.16.1",
 		"primeicons": "^4.1.0",
 		"primereact": "^6.0.0",
 		"prop-types": "^15.7.2",

@@ -1,14 +1,16 @@
 import "primeicons/primeicons.css";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.css";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import "../../styles/cardPlanets.scss";
 import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
 
 export const CardPlanets = props => {
+	const { store, actions } = useContext(Context);
 	//fetch de people/...
 
 	const [planets, setPlanets] = useState([]);
@@ -47,7 +49,10 @@ export const CardPlanets = props => {
 						</button>
 					</Link>
 
-					<button type="button" className="buttonHeart ml-auto mr-5 ">
+					<button
+						type="button"
+						className="buttonHeart ml-auto mr-5 "
+						onClick={() => actions.addFavorites(props.name)}>
 						<i className="far fa-heart" />
 					</button>
 				</div>

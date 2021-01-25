@@ -7,6 +7,8 @@ import PropTypes from "prop-types";
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
+	var images = store.images;
+
 	const { id } = useParams();
 
 	const [person, setPerson] = useState([]);
@@ -30,8 +32,11 @@ export const Demo = () => {
 					<div className="containerInfo">
 						<img
 							className="imgInfo"
-							src="https://d25nlln9isiu5y.cloudfront.net/wp-content/uploads/2020/08/18093730/Starwars-trilogia.jpg"
-							//alt="Card image cap"
+							src={images[id - 1].url}
+							onError={e =>
+								(e.target.src =
+									"https://d25nlln9isiu5y.cloudfront.net/wp-content/uploads/2020/08/18093730/Starwars-trilogia.jpg")
+							}
 						/>
 						<div className="info col-4">
 							<h1>{person.name}</h1>
