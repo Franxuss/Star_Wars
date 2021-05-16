@@ -17,7 +17,7 @@ export const Home = () => {
 	}, []);
 
 	const obtenerDatos = async () => {
-		const data = await fetch("https://www.swapi.tech/api/people/");
+		const data = await fetch("https://www.swapi.tech/api/people?page=1&limit=100");
 		const users = await data.json();
 		setCharacters(users.results);
 	};
@@ -31,7 +31,7 @@ export const Home = () => {
 	}, []);
 
 	const obtenerPlanetas = async () => {
-		const data = await fetch("https://www.swapi.tech/api/planets/");
+		const data = await fetch("https://www.swapi.tech/api/planets?page=1&limit=100");
 		const users = await data.json();
 		setPlanets(users.results);
 	};

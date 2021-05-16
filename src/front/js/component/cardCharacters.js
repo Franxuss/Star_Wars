@@ -29,7 +29,7 @@ export const CardCharacter = props => {
 			<div className="card cardPlanets">
 				<img
 					className="card-img-top"
-					src={images[props.uid - 1].url}
+					src="https://d25nlln9isiu5y.cloudfront.net/wp-content/uploads/2020/08/18093730/Starwars-trilogia.jpg"
 					onError={e =>
 						(e.target.src =
 							"https://d25nlln9isiu5y.cloudfront.net/wp-content/uploads/2020/08/18093730/Starwars-trilogia.jpg")
